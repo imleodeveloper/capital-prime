@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const clockSpan = document.querySelector(".clock-span");
 
-  const liveHours = [9, 12, 19]; // pode deixar isso em qualquer ordem
+  const liveHours = [13, 19, 22]; // pode deixar isso em qualquer ordem
   const liveDurationMinutes = 60;
 
   function isLiveNow(brNow) {
