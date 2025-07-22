@@ -365,7 +365,7 @@
             con nuestros mejores traders. Solo los que están adentro participan
           </p>
           <a
-            class="hiperlead cta-animate mb-6 flex justify-center items-center border-2 font-bold text-xl py-4 px-4 lg:px-12 bg-gradient-to-r from-[#0077B5] to-[#004471] hover:brightness-50 gap-4 text-white rounded-xl shadow-xl"
+            class="hiperlead cta-animate cursor-pointer mb-6 flex justify-center items-center border-2 font-bold text-xl py-4 px-4 lg:px-12 bg-gradient-to-r from-[#0077B5] to-[#004471] hover:brightness-50 gap-4 text-white rounded-xl shadow-xl"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -804,6 +804,7 @@
         observer.observe({ entryTypes: ["resource"] });
       });
     </script>
+    <!--
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         function _0xb9ab(_0x7c105e, _0x5be5fa) {
@@ -957,7 +958,6 @@
           fbq(_0x5a8ef9(0x19d), _0x5a8ef9(0x1a0)));
       });
     </script>
-    <!--
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const _0x7c7541 = _0x50cc;
@@ -1220,8 +1220,37 @@
           return _0x4413();
         }
       });
+    </script>-->
+    <script>
+      document.querySelectorAll(".hiperlead").forEach((el) => {
+        el.addEventListener("click", async (e) => {
+          e.preventDefault(); // Impede comportamento padrão
+
+          const overlay = document.createElement("div");
+          overlay.style =
+            "position:fixed;top:0;left:0;width:100%;height:100%;background:#000a;z-index:9999;color:white;display:flex;align-items:center;justify-content:center;font-size:2rem;";
+          overlay.textContent = "Redirecionando...";
+          document.body.appendChild(overlay);
+
+          try {
+            const res = await fetch(
+              "https://callback.metechsolucoes.com.br/A4Bx-yjIG-xemb-4jbZ-TLZ47T5Dck"
+            );
+            const data = await res.json();
+            if (data.success && data.invite_link) {
+              window.location.href = data.invite_link;
+            } else {
+              console.warn("Erro ao buscar link, redirecionando para fallback");
+              window.location.href = "https://t.me/+sXMdFdyz70JlYzUx";
+            }
+          } catch (e) {
+            console.error("Erro na requisição", e);
+            window.location.href = "https://t.me/+sXMdFdyz70JlYzUx";
+          }
+        });
+      });
     </script>
-    <script src="/alejandro/clock.js"></script>
+    <!--<script src="/alejandro/clock.js"></script>
     <script src="/alejandro/track.js"></script>-->
   </body>
 </html>
